@@ -93,7 +93,7 @@
     };
 
     // FN Layer
-    const uint8_t LED_LIST_FN[] = { LED_1, LED_2, LED_3, LED_4, LED_5, LED_6, LED_7, LED_8, LED_9, LED_0, LED_MINS, LED_EQL };
+    const uint8_t LED_LIST_FN[] = { LED_ESC, LED_1, LED_2, LED_3, LED_4, LED_5, LED_6, LED_7, LED_8, LED_9, LED_0, LED_MINS, LED_EQL };
     const uint8_t LED_LIST_SW[] = { LED_LBRC, LED_SCLN, LED_QUOT };
     const uint8_t LED_LIST_FR[] = { LED_C };
 
