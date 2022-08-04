@@ -16,13 +16,14 @@
 #pragma once
 
 #define RGBLIGHT_LAYERS
-#ifdef RGB_DI_PIN
-    // /*== all animations enable ==*/
-    //#define RGBLIGHT_ANIMATIONS
-    // /*== or choose animations ==*/
-    #define RGBLIGHT_EFFECT_BREATHING
-    #define RGBLIGHT_EFFECT_RAINBOW_MOOD
-    #define RGBLIGHT_EFFECT_RAINBOW_SWIRL
-#endif
+#undef RGBLIGHT_LIMIT_VAL
+#define RGBLIGHT_LIMIT_VAL 230
+// #ifdef RGB_DI_PIN
+//     #undef RGBLIGHT_ANIMATIONS
+//     // /*== all animations enable ==*/
+//     #define RGBLIGHT_ANIMATIONS
+//     // /*== or choose animations ==*/
+//     //#define RGBLIGHT_EFFECT_BREATHING
+// #endif
 
 #define TAPPING_TERM 200
