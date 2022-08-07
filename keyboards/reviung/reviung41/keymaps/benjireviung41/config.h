@@ -18,12 +18,6 @@
 #define RGBLIGHT_LAYERS
 #undef RGBLIGHT_LIMIT_VAL
 #define RGBLIGHT_LIMIT_VAL 230
-// #ifdef RGB_DI_PIN
-//     #undef RGBLIGHT_ANIMATIONS
-//     // /*== all animations enable ==*/
-//     #define RGBLIGHT_ANIMATIONS
-//     // /*== or choose animations ==*/
-//     //#define RGBLIGHT_EFFECT_BREATHING
-// #endif
+#define RGBLIGHT_EFFECT_BREATHING
 
-#define TAPPING_TERM 200
+#define TAPPING_TERM 165
