@@ -26,6 +26,7 @@ enum combo_events {
   COMBO_TAB,
   COMBO_ESC,
   COMBO_DEL,
+  COMBO_ENT,
   COMBO_CUT,
   COMBO_COPY,
   COMBO_PASTE
@@ -39,6 +40,16 @@ enum combo_events {
 #define KC_SK RSFT_T(KC_K)
 #define KC_AL RALT_T(KC_L)
 #define KC_GQUOT RGUI_T(KC_QUOT)
+
+#define KC_GBSLS LGUI_T(KC_BSLS)
+#define KC_ALCBR LALT_T(KC_LCBR)
+#define KC_SLBRC LSFT_T(KC_LBRC)
+#define KC_CLPRN LCTL_T(KC_LPRN)
+#define KC_CRPRN RCTL_T(KC_RPRN)
+#define KC_SRBRC RSFT_T(KC_RBRC)
+#define KC_ARCBR RALT_T(KC_RCBR)
+#define KC_GGRV RGUI_T(KC_GRV)
+
 
 #define LOWER LT(_LOWER, KC_BSPC)
 #define RAISE LT(_RAISE, KC_SPC)
@@ -72,7 +83,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     KC_Q,   KC_W,   KC_E,   KC_R,   KC_T,  KC_MUTE,  KC_Y,   KC_U,    KC_I,   KC_O,     KC_P,
    KC_GA,  KC_AS,  KC_SD,  KC_CF,   KC_G,            KC_H,  KC_CJ,   KC_SK,  KC_AL, KC_GQUOT,
     KC_Z,   KC_X,   KC_C,   KC_V,   KC_B,            KC_N,   KC_M, KC_COMM, KC_DOT,  KC_SLSH,
-                          ADJUST,  LOWER,           RAISE, KC_ENT
+                          ADJUST,  LOWER,           RAISE, ADJUST
   ),
 
   /* Lower Layer - Symbols
@@ -81,16 +92,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   * |------+------+------+------+------+         +------+------+------+------+------|
   * |   /  |   {  |   [  |   (  |   _  |         |   ;  |   )  |   ]  |   }  |   `  |
   * |------+------+------+------+------+         +------+------+------+------+------|
-  * |      |   Ç  |   Å  |   Ä  |   Ö  |         |      |      |      |      |   ~  |
+  * |      |   Ç  |   Å  |   Ä  |   Ö  |         |   :  |   +  |      |      |   ~  |
   * |------+------+------+------+------+         +------+------+------+------+------|
   *                      |Adjust| Lower|         | Raise| Enter|
   *                      +-------------/         \-------------+
   */
   [_LOWER] = LAYOUT(
-    KC_EXLM,   KC_AT,  KC_HASH,   KC_DLR,   KC_PERC, KC_TRNS,  KC_CIRC,  KC_AMPR,  KC_ASTR, KC_EQUAL,  KC_MINS,
-    KC_BSLS, KC_LCBR,  KC_LBRC,  KC_LPRN,   KC_UNDS,           KC_SCLN,  KC_RPRN,  KC_RBRC,  KC_RCBR,   KC_GRV,
-    _______, FR_CCED,  SE_ARNG,  SE_ODIA,   SE_ADIA,           _______,  _______,  _______,  _______,  KC_TILD,
-                                 KC_TRNS,   KC_TRNS,           KC_TRNS,  KC_TRNS
+     KC_EXLM,    KC_AT,  KC_HASH,     KC_DLR,  KC_PERC, KC_TRNS,  KC_CIRC,   KC_AMPR,   KC_ASTR,  KC_EQUAL,  KC_MINS,
+    KC_GBSLS, KC_ALCBR,  KC_SLBRC,  KC_CLPRN,  KC_UNDS,           KC_SCLN,  KC_CRPRN,  KC_SRBRC,  KC_ARCBR,  KC_GGRV,
+     _______,  FR_CCED,  SE_ARNG,    SE_ODIA,  SE_ADIA,           KC_COLN,   KC_PLUS,   _______,   _______,  KC_TILD,
+                                     KC_TRNS,  KC_TRNS,           KC_TRNS,   KC_TRNS
   ),
 
   /* Raise Layer - Number and FN
@@ -138,9 +149,10 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 }
 
 #ifdef COMBO_ENABLE
-const uint16_t PROGMEM combo_tab[] = {KC_Q, KC_W, COMBO_END};
-const uint16_t PROGMEM combo_esc[] = {KC_E, KC_W, COMBO_END};
-const uint16_t PROGMEM combo_del[] = {KC_MINS, KC_EQL, COMBO_END};
+const uint16_t PROGMEM combo_esc[] = {KC_Q, KC_W, COMBO_END};
+const uint16_t PROGMEM combo_tab[] = {KC_GA, KC_AS, COMBO_END};
+const uint16_t PROGMEM combo_del[] = {KC_O, KC_P, COMBO_END};
+const uint16_t PROGMEM combo_ent[] = {KC_AL, KC_GQUOT, COMBO_END};
 const uint16_t PROGMEM combo_cut[] = {KC_Z, KC_X, COMBO_END};
 const uint16_t PROGMEM combo_copy[] = {KC_X, KC_C, COMBO_END};
 const uint16_t PROGMEM combo_paste[] = {KC_C, KC_V, COMBO_END};
@@ -149,6 +161,7 @@ combo_t key_combos[COMBO_COUNT] = {
   [COMBO_TAB] = COMBO(combo_tab,KC_TAB),
   [COMBO_ESC] = COMBO(combo_esc,KC_ESC),
   [COMBO_DEL] = COMBO(combo_del,KC_DEL),
+  [COMBO_ENT] = COMBO(combo_ent,KC_ENT),
   [COMBO_CUT] = COMBO(combo_cut,CUT),
   [COMBO_COPY] = COMBO(combo_copy,COPY),
   [COMBO_PASTE] = COMBO(combo_paste,PASTE),
