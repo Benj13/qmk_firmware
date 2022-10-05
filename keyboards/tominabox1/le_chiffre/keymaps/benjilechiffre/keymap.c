@@ -66,6 +66,9 @@ enum combo_events {
 #define SEL_L LCTL(LSFT(KC_LEFT))
 #define SEL_R LCTL(LSFT(KC_RIGHT))
 
+#define ALT_TAB LALT(KC_TAB)
+#define ALT_STAB LALT(LSFT(KC_TAB))
+
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /* Base Layer - QWERTY
   * ,----------------------------------+         +----------------------------------.
@@ -130,20 +133,45 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 };
 
 bool encoder_update_user(uint8_t index, bool clockwise) {
-    if (index == 0) {
-        if (clockwise) {
-            tap_code16(SEL_R);
-        } else {
-            tap_code16(SEL_L);
-        }
+    switch(get_highest_layer(layer_state|default_layer_state)) {
+        case _BASE:
+            if (index == 0) {
+                if (clockwise) {
+                    tap_code16(SEL_R);
+                } else {
+                    tap_code16(SEL_L);
+                }
+            }
+            break;
+        case _LOWER:
+            if (index == 0) {
+                if (clockwise) {
+                    tap_code16(ALT_TAB);
+                } else {
+                    tap_code16(ALT_STAB);
+                }
+            }
+            break;
+        case _RAISE:
+            if (index == 0) {
+                if (clockwise) {
+                    tap_code(KC_VOLU);
+                } else {
+                    tap_code(KC_VOLD);
+                }
+            }
+            break;
+        case _ADJUST:
+            if (index == 0) {
+                if (clockwise) {
+                    tap_code(KC_PGDN);
+                } else {
+                    tap_code(KC_PGUP);
+                }
+            }
+            break;
     }
-    else if (index == 1) {
-        if (clockwise) {
-            tap_code(KC_VOLU);
-        } else {
-            tap_code(KC_VOLD);
-        }
-    }
+
     return true;
 }
 
