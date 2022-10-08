@@ -41,15 +41,6 @@ enum combo_events {
 #define KC_AL RALT_T(KC_L)
 #define KC_GQUOT RGUI_T(KC_QUOT)
 
-#define KC_GBSLS LGUI_T(KC_BSLS)
-#define KC_ALCBR LALT_T(KC_LCBR)
-#define KC_SLBRC LSFT_T(KC_LBRC)
-#define KC_CLPRN LCTL_T(KC_LPRN)
-#define KC_CRPRN RCTL_T(KC_RPRN)
-#define KC_SRBRC RSFT_T(KC_RBRC)
-#define KC_ARCBR RALT_T(KC_RCBR)
-#define KC_GGRV RGUI_T(KC_GRV)
-
 #define LOWER LT(_LOWER, KC_BSPC)
 #define RAISE LT(_RAISE, KC_SPC)
 #define ADJUST LT(_ADJUST, KC_ENT)
@@ -175,7 +166,6 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
     return true;
 }
 
-#ifdef COMBO_ENABLE
 const uint16_t PROGMEM combo_esc[] = {KC_Q, KC_W, COMBO_END};
 const uint16_t PROGMEM combo_tab[] = {KC_GA, KC_AS, COMBO_END};
 const uint16_t PROGMEM combo_del[] = {KC_O, KC_P, COMBO_END};
@@ -193,7 +183,29 @@ combo_t key_combos[COMBO_COUNT] = {
   [COMBO_COPY] = COMBO(combo_copy,COPY),
   [COMBO_PASTE] = COMBO(combo_paste,PASTE),
 };
-#endif
+
+bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case KC_GA:
+            return true;
+        case KC_AS:
+            return true;
+        case KC_SD:
+            return true;
+        case KC_CF:
+            return true;
+        case KC_CJ:
+            return true;
+        case KC_SK:
+            return true;
+        case KC_AL:
+            return true;
+        case KC_GQUOT:
+            return true;
+        default:
+            return false;
+    }
+}
 
 #ifdef RGB_MATRIX_ENABLE
     // Capslock, Scroll lock and Numlock indicator

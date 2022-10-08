@@ -20,4 +20,11 @@
 #define RGBLIGHT_LIMIT_VAL 230
 #define RGBLIGHT_EFFECT_BREATHING
 
+#define IGNORE_MOD_TAP_INTERRUPT //helps with homerow mods
+#define PERMISSIVE_HOLD
+#define TAPPING_FORCE_HOLD_PER_KEY
+
 #define TAPPING_TERM 165
+
+#define COMBO_COUNT 3
+#define COMBO_TERM 30
