@@ -21,6 +21,8 @@
 #define RGB_MATRIX_STARTUP_VAL 100
 
 #define IGNORE_MOD_TAP_INTERRUPT //helps with homerow mods
+#define PERMISSIVE_HOLD
+#define TAPPING_FORCE_HOLD_PER_KEY
 
 #define COMBO_COUNT 7
 #define COMBO_TERM 30
