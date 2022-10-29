@@ -48,11 +48,6 @@ enum combo_events {
 #define COPY LCTL(KC_C)
 #define PASTE LCTL(KC_V)
 
-#define TD_CSL TD(_TD_CTL_SFT_LEFT)
-#define TD_CSD TD(_TD_CTL_SFT_DOWN)
-#define TD_CSU TD(_TD_CTL_SFT_UP)
-#define TD_CSR TD(_TD_CTL_SFT_RIGHT)
-
 #define KC_GA LGUI_T(KC_A)
 #define KC_AS LALT_T(KC_S)
 #define KC_SD LSFT_T(KC_D)
@@ -61,14 +56,6 @@ enum combo_events {
 #define KC_SK RSFT_T(KC_K)
 #define KC_AL RALT_T(KC_L)
 #define KC_GSCLN RGUI_T(KC_SCLN)
-
- // Tap Dance Definitions
- qk_tap_dance_action_t tap_dance_actions[] = {
-     [_TD_CTL_SFT_LEFT] = ACTION_TAP_DANCE_DOUBLE(KC_LEFT, LCTL(KC_LEFT)),
-     [_TD_CTL_SFT_DOWN] = ACTION_TAP_DANCE_DOUBLE(KC_DOWN, LCTL(KC_DOWN)),
-     [_TD_CTL_SFT_UP] = ACTION_TAP_DANCE_DOUBLE(KC_UP, LCTL(KC_UP)),
-     [_TD_CTL_SFT_RIGHT] = ACTION_TAP_DANCE_DOUBLE(KC_RIGHT, LCTL(KC_RIGHT))
- };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   /* Base Layer - QWERTY
@@ -127,7 +114,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   
   [_ADJUST] = LAYOUT_reviung41(
     RGB_VAI,   RGB_SAI, RGB_HUI,  RGB_MOD,  _______,   RGB_TOG,            _______,  _______,  _______,  _______,  _______,  _______,
-    RGB_VAD,   RGB_SAD, RGB_HUD,  RGB_RMOD, _______,   _______,             TD_CSL,   TD_CSD,   TD_CSU,   TD_CSR,  _______,  _______,
+    RGB_VAD,   RGB_SAD, RGB_HUD,  RGB_RMOD, _______,   _______,            KC_LEFT,  KC_DOWN,    KC_UP, KC_RIGHT,  _______,  _______,
     _______,   _______, _______,  _______,  _______,   _______,            KC_HOME,   KC_END,  KC_PGUP,  KC_PGDN,  _______,  _______,
                                             _______,   _______,  _______,  _______,  _______
   ),
