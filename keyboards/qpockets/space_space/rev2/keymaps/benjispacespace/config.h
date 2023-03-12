@@ -16,6 +16,12 @@
 
 #pragma once
 
+#define RGBLIGHT_LAYERS
+#undef RGBLED_NUM
+#define RGBLED_NUM 16
+#undef RGBLIGHT_LIMIT_VAL
+#define RGBLIGHT_LIMIT_VAL 230
+
 /*Modtaps*/
 #define TAPPING_TERM 165
 #define IGNORE_MOD_TAP_INTERRUPT
