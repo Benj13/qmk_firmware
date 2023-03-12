@@ -120,10 +120,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   ),
 
   [_ADJUST] = LAYOUT_default(
-    QK_BOOT, _______, _______, _______, _______,   _______, _______, _______, _______, _______, _______,
-    _______, _______, _______, _______, _______,   _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______,
-    _______, _______, _______, _______, _______,   _______, KC_HOME, KC_END,  KC_PGUP, KC_PGDN, _______,
-                      KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
+    QK_BOOT, RGB_SAI, RGB_HUI, RGB_MOD,  RGB_TOG,   _______, _______, _______, _______, _______, _______,
+    _______, RGB_VAD, RGB_SAD, RGB_RMOD, _______,   _______, KC_LEFT, KC_DOWN, KC_UP,   KC_RGHT, _______,
+    _______, _______, _______, _______,  _______,   _______, KC_HOME, KC_END,  KC_PGUP, KC_PGDN, _______,
+                      KC_TRNS, KC_TRNS,  KC_TRNS, KC_TRNS, KC_TRNS, KC_TRNS
   ),
 };
 
@@ -222,3 +222,12 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
 
     return false;
 }
+
+#ifdef RGBLIGHT_ENABLE
+
+  // Init of the RGB colors and effects
+  void keyboard_post_init_user(void) {
+      rgblight_sethsv_range(HSV_RED, 0, 8);
+      rgblight_sethsv_range(HSV_BLUE, 9, 16);
+  }
+ #endif
