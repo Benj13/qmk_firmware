@@ -1,0 +1,11 @@
+{
+    "keyboard": "lesovoz",
+    "keymap": "djid",
+    "layers": [
+        [ "HRMRK(LESOVOZ_BASE)" ],
+		[ "LESOVOZ_LOWER" ],
+		[ "LESOVOZ_RAISE" ],
+		[ "LESOVOZ_ADJUST" ]
+    ],
+	"layout": "LAYOUT_lesovoz_w"
+}
