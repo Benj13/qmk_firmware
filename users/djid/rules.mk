@@ -32,9 +32,9 @@ NKRO_ENABLE = yes
 # Main source file
 SRC += djid.c
 
-# Reviung41 keyboard features
+# Lesovoz keyboard features
 ifeq ($(strip $(KEYBOARD)), lesovoz)
 	SRC += lesovoz.c
 	MCU = atmega328p
-	BOOTLOADER = USBasp
+	BOOTLOADER = usbasploader
 endif
