@@ -13,9 +13,18 @@ enum combo_events {
   COMBO_PASTE
 };
 
-#define LOWER LT(_LOWER, KC_LALT)
-#define RAISE LT(_RAISE, KC_COLN)
-#define ADJUST LT(_ADJUST, KC_BSPC)
+#define LOWER LT(_LOWER, KC_BSPC)
+#define RAISE LT(_RAISE, KC_SPC)
+#define ADJUST LT(_ADJUST, KC_ENT)
+
+#define KC_GA LGUI_T(KC_A)
+#define KC_AS LALT_T(KC_S)
+#define KC_SD LSFT_T(KC_D)
+#define KC_CF LCTL_T(KC_F)
+#define KC_CJ RCTL_T(KC_J)
+#define KC_SK RSFT_T(KC_K)
+#define KC_AL RALT_T(KC_L)
+#define KC_GQUOT RGUI_T(KC_QUOT)
 
 #define FR_CCED RALT(KC_COMM)
 #define SE_ARNG RALT(KC_W)
@@ -39,10 +48,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   * `--------------------------------------------------------------------------'
   */
   [_BASE] = LAYOUT_arrow(
-    KC_ESC,  KC_Q,    KC_W,    KC_E,  KC_R, KC_T,    KC_Y,   KC_U,  KC_I,    KC_O,    KC_P,    KC_DEL,
-    KC_TAB,  KC_A,    KC_S,    KC_D,  KC_F, KC_G,    KC_H,   KC_J,  KC_K,    KC_L,    KC_QUOT, KC_ENT,
-    KC_LSFT, KC_Z,    KC_X,    KC_C,  KC_V, KC_B,    KC_N,   KC_M,  KC_COMM, KC_DOT,  KC_UP,   KC_SLSH,
-    KC_LCTL, KC_LGUI, LOWER,   ADJUST,               KC_SPC,        RAISE,   KC_LEFT, KC_DOWN, KC_RIGHT
+    KC_ESC,  KC_Q,   KC_W,  KC_E,    KC_R,  KC_T, KC_Y,   KC_U,  KC_I,    KC_O,    KC_P,     KC_DEL,
+    KC_TAB,  KC_GA,  KC_AS, KC_SD,   KC_CF, KC_G, KC_H,   KC_CJ, KC_SK,   KC_AL,   KC_GQUOT, KC_ENT,
+    KC_LSFT, KC_Z,   KC_X,  KC_C,    KC_V,  KC_B, KC_N,   KC_M,  KC_COMM, KC_DOT,  KC_UP,    KC_SLSH,
+    KC_LCTL, ADJUST, LOWER, KC_BSPC,              KC_SPC,        RAISE,   KC_LEFT, KC_DOWN,  KC_RIGHT
   ),
   /* Symbols
   * ,--------------------------------------------------------------------------.
@@ -50,16 +59,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   * |------`-----`-----`-----`-----`-----`-----`-----`-----`-----`-----`-------|
   * |   \  |  {  |  [  |  (  |  _  |  ;  |  :  |  |  |  )  |  ]  |  }   |      |
   * |-------`-----`-----`-----`-----`-----`-----`-----`-----`-----`-----`------|
-  * |       |  Ç  |  Å  |  Ä  |  Ö  |     |     |     |     |      |     |     |
+  * |   |   |  Ç  |  Å  |  Ä  |  Ö  |     |     |     |     |      |     |     |
   * |--------`-----`-----`-----`-----`-----`-----`-----`-----`-----`-----`-----|
   * |      |       |      |             |             |      |     |     |     |
   * `--------------------------------------------------------------------------'
   */
   [_LOWER] = LAYOUT_arrow( 
-    KC_GRV,  KC_EXLM,  KC_AT,  KC_HASH,  KC_DLR, KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_MINS,  KC_EQUAL, KC_PLUS, 
-    KC_BSLS, KC_LCBR, KC_LBRC, KC_LPRN, KC_UNDS, KC_SCLN, KC_COLN, KC_PIPE,  KC_RPRN,  KC_RBRC, KC_RCBR, _______,
-    _______, FR_CCED, SE_ARNG, SE_ODIA, SE_ADIA, _______, _______, _______,  _______,  _______, _______, _______,
-    _______, _______, _______, _______,          _______,                    _______,  _______, _______, _______
+    _______, KC_EXLM,  KC_AT,  KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_EQUAL, KC_MINS, _______, 
+    _______, KC_BSLS, KC_LCBR, KC_LBRC, KC_LPRN, KC_UNDS, KC_SCLN, KC_RPRN, KC_RBRC, KC_RCBR,  KC_GRV,  _______,
+    _______, KC_PIPE, FR_CCED, SE_ARNG, SE_ADIA, SE_ODIA, KC_COLN, KC_PLUS, _______, KC_TILD,  _______, _______,
+    _______, _______, _______, _______,          _______,                   _______, _______,  _______, _______
   ),
   /* Number and FN
   * ,--------------------------------------------------------------------------.
