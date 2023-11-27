@@ -52,7 +52,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   * |    |Enter|Lower|   Backspc    |   Space    |Raise|Enter|    |
   * `-------------------------------------------------------------'
   */
+<<<<<<< HEAD
   [_BASE] = LAYOUT(
+=======
+  [_BASE] = LAYOUT_split_space(
+>>>>>>> ae1fbf2954ff018b8cdad4bba1b765af299b1845
     KC_Q,    KC_W,   KC_E,  KC_R,    KC_T,     KC_Y,  KC_U,   KC_I,    KC_O,   KC_P,
     KC_GA,   KC_AS,  KC_SD, KC_CF,   KC_G,     KC_H,  KC_CJ,  KC_SK,   KC_AL,  KC_GQUOT,
     KC_Z,    KC_X,   KC_C,  KC_V,    KC_B,     KC_N,  KC_M,   KC_COMM, KC_DOT,
@@ -70,7 +74,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   * |    |Enter|Lower|   Backspc    |   Space    |Raise|Enter|    |
   * `-------------------------------------------------------------'
   */
+<<<<<<< HEAD
   [_LOWER] = LAYOUT(
+=======
+  [_LOWER] = LAYOUT_split_space(
+>>>>>>> ae1fbf2954ff018b8cdad4bba1b765af299b1845
     KC_EXLM, KC_AT,   KC_HASH, KC_DLR,  KC_PERC, KC_CIRC, KC_AMPR, KC_ASTR, KC_EQUAL, KC_MINS,
     KC_BSLS, KC_LCBR, KC_LBRC, KC_LPRN, KC_UNDS, KC_SCLN, KC_RPRN, KC_RBRC, KC_RCBR,  KC_GRV,
     KC_PIPE, FR_CCED, SE_ARNG, SE_ADIA, SE_ODIA, KC_COLN, KC_PLUS, KC_DOT,  KC_TILD,

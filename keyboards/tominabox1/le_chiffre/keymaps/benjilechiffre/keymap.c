@@ -111,7 +111,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   [_RAISE] = LAYOUT(
        KC_1,     KC_2,     KC_3,     KC_4,     KC_5,  KC_TRNS,     KC_6,     KC_7,     KC_8,     KC_9,   KC_0,
       KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,              KC_F6,    KC_F7,    KC_F8,    KC_F9,  KC_F10,
+<<<<<<< HEAD
     _______,  _______,  _______,  _______,  _______,            KC_COLN,  KC_PLUS,  _______,   KC_F11,  KC_F12,
+=======
+    _______,  _______,  _______,  _______,  _______,            _______,  _______,  _______,   KC_F11,  KC_F12,
+>>>>>>> ae1fbf2954ff018b8cdad4bba1b765af299b1845
                                   KC_TRNS,  KC_TRNS,            KC_TRNS,  KC_TRNS
   ),
 
@@ -209,7 +213,11 @@ bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
 
 #ifdef RGB_MATRIX_ENABLE
     // Capslock, Scroll lock and Numlock indicator
+<<<<<<< HEAD
     bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+=======
+    void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+>>>>>>> ae1fbf2954ff018b8cdad4bba1b765af299b1845
         switch(get_highest_layer(layer_state)){  // special handling per layer
         case _BASE:  // on Fn layer select what the encoder does when pressed
             for (uint8_t i=0; i<9; i++) {
@@ -246,7 +254,10 @@ bool get_tapping_force_hold(uint16_t keycode, keyrecord_t *record) {
         default:
             break;
         }
+<<<<<<< HEAD
 
         return false;
+=======
+>>>>>>> ae1fbf2954ff018b8cdad4bba1b765af299b1845
     }
 #endif
